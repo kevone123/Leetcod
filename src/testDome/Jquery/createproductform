@@ -1,0 +1,44 @@
+createProductCodeForm
+
+The createProductCodeForm function is used to create a new form that accepts a product code from a user.
+
+The current version of the form contains the hint: 'The product code can be found on the label'. This hint is currently always visible to the user.
+
+Improve the form so that the hint is only rendered when the input element is the focused element.
+
+Im having a problem getting this question done since I have little experience with jquery and most of this test has been with javascript / php.
+
+function createProductCodeForm(parent) {
+  var form = $("<form/>");
+
+  form.append($("<label>").text('Product Code:'));
+  form.append($("<input>").attr('name', 'productCode').attr('type', 'text').attr('onfocus','$("label[name]").show()').attr('onblur','$("label[name]").hide()'));
+  form.append($("<label>").attr('name', 'hint').text('The product code can be found on the label.').attr('style','display:none'));
+
+  form.append('<br>');
+
+  form.append($("<input>").attr('type', 'submit'));
+
+  parent.append(form);
+}
+
+
+
+.....................
+
+
+Test duration: This test normally takes 1h 33min, but you have up to 2h 19min (no breaks allowed).
+
+QUESTION	ENVIRONMENT
+1	Multiple Correct Answers
+2	Java SE 8
+3	Multiple Correct Answers
+4	Java SE 8
+5	Multiple Correct Answers
+6	HTML5, CSS3
+7	HTML5, CSS3
+8	HTML5, CSS3
+9	ECMAScript 6
+10	ECMAScript 6
+11	ECMAScript 6, jQuery v3.2.1 (available as $)
+12	Text Answer

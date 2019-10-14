@@ -1,0 +1,290 @@
+JavaScript let
+JavaScript const
+JavaScript Arrow Functions
+JavaScript Classes
+Default parameter values
+Array.find()
+Array.findIndex()
+Exponentiation (**) (EcmaScript 2016)
+Browser Support for ES6 (ECMAScript 2015)
+Safari 10 and Edge 14 were the first browsers to fully support ES6:
+
+Chrome 58	Edge 14	Firefox 54	Safari 10	Opera 55
+Jan 2017	Aug 2016	Mar 2017	Jul 2016	Aug 2018
+JavaScript let
+The let statement allows you to declare a variable with block scope.
+
+Example
+var x = 10;
+// Here x is 10
+{ 
+  let x = 2;
+  // Here x is 2
+}
+// Here x is 10
+JavaScript const
+The const statement allows you to declare a constant (a JavaScript variable with a constant value).
+
+Constants are similar to let variables, except that the value cannot be changed.
+
+Example
+var x = 10;
+// Here x is 10
+{ 
+  const x = 2;
+  // Here x is 2
+}
+// Here x is 10
+Read more about let and const in our JavaScript Let / Const Chapter.
+
+Arrow Functions
+Arrow functions allows a short syntax for writing function expressions.
+
+You don't need the function keyword, the return keyword, and the curly brackets.
+
+Example
+// ES5
+var x = function(x, y) {
+   return x * y;
+}
+
+// ES6
+const x = (x, y) => x * y;
+Arrow functions do not have their own this. They are not well suited for defining object methods.
+
+Arrow functions are not hoisted. They must be defined before they are used.
+
+Using const is safer than using var, because a function expression is always constant value.
+
+You can only omit the return keyword and the curly brackets if the function is a single statement. Because of this, it might be a good habit to always keep them:
+
+Example
+const x = (x, y) => { return x * y };
+Learn more about Arrow Functions in our JavaScript Arrow Function chapter.
+
+Classes
+ES6 introduced classes.
+
+A class is a type of function, but instead of using the keyword function to initiate it, we use the keyword class, and the properties is assigned inside a constructor() method.
+
+Use the keyword class to create a class, and always add a constructor method.
+
+The constructor method is called each time the class object is initialized.
+
+Example
+A simple class definition for a class named "Car":
+
+class Car {
+  constructor(brand) {
+    this.carname = brand;
+  }
+}
+Now you can create objects using the Car class:
+
+Example
+Create an object called "mycar" based on the Car class:
+
+class Car {
+  constructor(brand) {
+    this.carname = brand;
+  }
+}
+mycar = new Car("Ford");
+
+Learn more about classes in our JavaScript Classes chapter.
+
+Default Parameter Values
+ES6 allows function parameters to have default values.
+
+Example
+function myFunction(x, y = 10) {
+  // y is 10 if not passed or undefined
+  return x + y;
+}
+myFunction(5); // will return 15
+Array.find()
+The find() method returns the value of the first array element that passes a test function.
+
+This example finds (returns the value of ) the first element that is larger than 18:
+
+Example
+var numbers = [4, 9, 16, 25, 29];
+var first = numbers.find(myFunction);
+
+function myFunction(value, index, array) {
+  return value > 18;
+}
+Note that the function takes 3 arguments:
+
+The item value
+The item index
+The array itself
+Array.findIndex()
+The findIndex() method returns the index of the first array element that passes a test function.
+
+This example finds the index of the first element that is larger than 18:
+
+Example
+var numbers = [4, 9, 16, 25, 29];
+var first = numbers.findIndex(myFunction);
+
+function myFunction(value, index, array) {
+  return value > 18;
+}
+Note that the function takes 3 arguments:
+
+The item value
+The item index
+The array itself
+New Number Properties
+ES6 added the following properties to the Number object:
+
+EPSILON
+MIN_SAFE_INTEGER
+MAX_SAFE_INTEGER
+Example
+var x = Number.EPSILON;
+Example
+var x = Number.MIN_SAFE_INTEGER;
+Example
+var x = Number.MAX_SAFE_INTEGER;
+New Number Methods
+ES6 added 2 new methods to the Number object:
+
+Number.isInteger()
+Number.isSafeInteger()
+The Number.isInteger() Method
+The Number.isInteger() method returns true if the argument is an integer.
+
+Example
+Number.isInteger(10);        // returns true
+Number.isInteger(10.5);      // returns false
+The Number.isSafeInteger() Method
+A safe integer is an integer that can be exactly represented as a double precision number.
+
+The Number.isSafeInteger() method returns true if the argument is a safe integer.
+
+Example
+Number.isSafeInteger(10);    // returns true
+Number.isSafeInteger(12345678901234567890);  // returns false
+Safe integers are all integers from -(253 - 1) to +(253 - 1).
+This is safe: 9007199254740991. This is not safe: 9007199254740992.
+
+New Global Methods
+ES6 also added 2 new global number methods:
+
+isFinite()
+isNaN()
+The isFinite() Method
+The global isFinite() method returns false if the argument is Infinity or NaN.
+
+Otherwise it returns true:
+
+Example
+isFinite(10/0);       // returns false
+isFinite(10/1);       // returns true
+The isNaN() Method
+The global isNaN() method returns true if the argument is NaN. Otherwise it returns false:
+
+Example
+isNaN("Hello");       // returns true
+Exponentiation Operator
+The exponentiation operator (**) raises the first operand to the power of the second operand.
+
+Example
+var x = 5;
+var z = x ** 2;          // result is 25
+x ** y produces the same result as Math.pow(x,y):
+
+Example
+var x = 5;
+var z = Math.pow(x,2);   // result is 25
+
+
+
+
+</................................
+
+hat is New in HTML5?
+The DOCTYPE declaration for HTML5 is very simple:
+
+<!DOCTYPE html>
+The character encoding (charset) declaration is also very simple:
+
+<meta charset="UTF-8">
+HTML5 Example:
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Title of the document</title>
+</head>
+
+<body>
+Content of the document......
+</body>
+
+</html>
+
+
+Example
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<section>
+
+<h1>Famous Cities</h1>
+
+<article>
+<h2>London</h2>
+<p>London is the capital city of England. It is the most populous city in the United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>
+</article>
+
+<article>
+<h2>Paris</h2>
+<p>Paris is the capital and most populous city of France.</p>
+</article>
+
+<article>
+<h2>Tokyo</h2>
+<p>Tokyo is the capital of Japan, the center of the Greater Tokyo Area, and the most populous metropolitan area in the world.</p>
+</article>
+
+</section>
+
+</body>
+</html>
+
+COLOR PICKER
+
+......................
+
+With our online editor, you can edit the CSS, and click on a button to view the result.
+
+CSS Example
+body {
+  background-color: lightblue;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+}
+
+p {
+  font-family: verdana;
+  font-size: 20px;
+}
+......................
+Java
+final, finally and finalize
+Final is used to apply restrictions on class, method and variable. Final class can't be inherited, final method can't be overridden and final variable value can't be changed.
+Finally is used to place important code, it will be executed whether exception is handled or not.
+Finalize is used to perform clean up processing just before object is garbage collected.
