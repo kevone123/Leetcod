@@ -31,13 +31,14 @@ public class MergeSort {
                 start++;
             } else {
                 mergeArray[indx] = array[startEnd];
-                startEnd++;
+                rightStart++;
             }
             indx++;
         }
         //copy start adnd end to new array
-        System.arraycopy(mergeArray,start,array,start,mid);
-        System.arraycopy(mergeArray,mid,array,rightStart,mid);
+        System.arraycopy(array,start,mergeArray,indx,startEnd - start + 1);
+        System.arraycopy(array,start,mergeArray,indx,rightEnd - rightStart + 1);
+        System.arraycopy(mergeArray,start,array,start, sideze);
 
        /*
           start from  start +  middle
@@ -57,7 +58,7 @@ public class MergeSort {
         //repeatedly split
         // replitedy merge when equal to 1
         /*
-          do this recursively
+          do this recursively3
 
           merege: looks at two sudo sub arrays
           defined by variables

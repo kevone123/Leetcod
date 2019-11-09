@@ -1,9 +1,6 @@
 package Amazon;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 class Node{
     int val;
@@ -19,47 +16,58 @@ class Node{
 public class LevelOrder {
 
 
-    public static List<List<Node>> levelOrder(Node root){
-      /*
-      queue
-         visit the root by adding it to the queu
-           (left)
-           while queue isnt empty
-           get the size of the queu
-           go through the entire queu
-               add the children to lsit
-               add children to the queu
+    public static List<List<Integer>> levelOrder(Node root){
+        List<List<Integer>> result = new LinkedList<>();
 
-           add the entire arraylist to result
+      /*
+          instatiate a queue
+           add to result
+          add the root to queueu
+             get the size of the queue
+             while  size > 0
+                 N = pop the
+                 add children to arraylist
+                 add to children to queue
+                 size --
+            add crrlist to result
 
        */
-      Queue<Node> queue = new LinkedList<Node>();
-      queue.add(root);
-      List<Node> list = new ArrayList<>();
-      List<List<Node>> result = new ArrayList<>();
-      list.add(root);
-      result.add(list);
-      while(!queue.isEmpty()){
-          Node node = queue.poll();
-          int size = queue.size();
-          for(int i = 0; i < queue.size(); i++){
-              list = new ArrayList<>();
-             if(node.left != null){
-                 list.add(node.left);
-             }
-             if(node.right != null){
-                 list.add(node.right);
-             }
-          }
-          result.add(list);
-          queue.add(node.left);
-          queue.add(node.right);
-      }
+       Queue<Node> queue = new LinkedList<>();
+        List<Integer> levelValues = null;
+       queue.add(root);
+       int size = 0;
+       while(!queue.isEmpty()){
+           size = queue.size();
+           levelValues = new ArrayList<>();
+           while( size > 0){
+               Node crrntNode = queue.poll();
+               levelValues.add(crrntNode.val);
+               if(crrntNode.left != null){
+                   queue.add(crrntNode.left);
+               }
+               if(crrntNode.right != null) {
+                   queue.add(crrntNode.right);
+               }
+               size--;
+           }
+           result.add(levelValues);
+
+       }
 
       return result;
     }
 
     public static void main(String[]args){
-      Node first = new Node(3);
+      Node first = new Node(1);
+      Node second = new Node(2);
+      Node third = new Node(3);
+      first.left = second;
+      first.right = third;
+      second.left = new Node(4);
+      second.right = new Node(5);
+      third.left = new Node(6);
+      third.right = new Node(7);
+
+        System.out.println(levelOrder(first).toString());
     }
 }
